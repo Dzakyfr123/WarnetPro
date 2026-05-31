@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Custom Font ---- */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ---- Custom Scrollbar ---- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+}
+
+/* ---- Animations ---- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.2); }
+    50% { box-shadow: 0 0 20px 4px rgba(34, 211, 238, 0.1); }
+}
+
+.stats-card {
+    animation: fadeIn 0.5s ease-out both;
+}
+
+.stats-card:nth-child(1) { animation-delay: 0.05s; }
+.stats-card:nth-child(2) { animation-delay: 0.1s; }
+.stats-card:nth-child(3) { animation-delay: 0.15s; }
+.stats-card:nth-child(4) { animation-delay: 0.2s; }
+
+.pc-card {
+    animation: fadeIn 0.4s ease-out both;
+}
+
+.session-item {
+    animation: slideUp 0.3s ease-out both;
+}
+
+.flash-message {
+    animation: slideUp 0.4s ease-out;
+}
+
+/* ---- Glassmorphism ---- */
+.glass {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(55, 65, 81, 0.3);
+}
+
+/* ---- Status Pulse Dot ---- */
+.status-dot-pulse {
+    position: relative;
+}
+
+.status-dot-pulse::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+/* ---- Form Elements Dark Theme Override ---- */
+select option {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* ---- Table Row Hover ---- */
+tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+/* ---- Timer Warning Shake ---- */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+.timer-warning {
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+/* ---- Pagination Dark Theme ---- */
+nav[aria-label="Pagination Navigation"] span,
+nav[aria-label="Pagination Navigation"] a {
+    background-color: #1f2937 !important;
+    border-color: #374151 !important;
+    color: #9ca3af !important;
+}
+
+nav[aria-label="Pagination Navigation"] span[aria-current="page"] span {
+    background-color: rgba(34, 211, 238, 0.1) !important;
+    border-color: rgba(34, 211, 238, 0.3) !important;
+    color: #22d3ee !important;
+}
+
+nav[aria-label="Pagination Navigation"] a:hover {
+    background-color: #374151 !important;
+    color: #f3f4f6 !important;
+}
